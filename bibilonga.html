@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta para Yurico</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #b19cd9, #7e57c2);
+            margin: 0;
+            font-family: "Arial", sans-serif;
+        }
+
+        .card-container {
+            position: relative;
+            width: 500px;
+            height: 600px;
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s ease-in-out;
+        }
+
+        .card.open {
+            transform: rotateY(180deg);
+        }
+
+        .card .front,
+        .card .inside {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .card .front {
+            background-color: #c9b6ec;
+            color: rgb(226, 82, 192);
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .card .front img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-bottom: 10px;
+        }
+
+        .card .front p {
+            font-size: 18px;
+            animation: bounce 1.5s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .card .inside {
+            background: rgb(253, 194, 243);
+            color: #ba2ecd;
+            transform: rotateY(180deg);
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .stickers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        .card.open .stickers {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stickers img {
+            width: 130px;
+            height: auto;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .stickers img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card-container">
+        <div class="card" id="birthdayCard">
+            <div class="front">
+                <img src="PerroFeliz.JPG" alt="Sticker del perrito">
+                <p>🎉TOCA AL PERRITO BABILONA🎉</p>
+            </div>
+            <div class="inside">
+                🎂✨ FELIZ CUMPLEAÑOS BIBILONGA ✨🎂
+                <p>🌸 LA CHICA MÁS HERMOSA DEL MUNDO 🌸</p>
+                <p>💖 MI PINSHESHA, MI TODOOOO 💖</p>
+                <p>🎁 TE DESEA TU PIGLET CON MUCHO AMOR 🎁</p>
+                <P>TE AMO MUCHO MI JURII HERMOSA ♥</P>
+                <div class="stickers">
+                    <img src="sentado1.JPG" alt="Sticker triste">
+                    <img src="gloriosa.JPG" alt="Sticker feliz">
+                    <img src="bailando1.JPG" alt="Sticker bailando">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("birthdayCard").addEventListener("click", function () {
+            this.classList.toggle("open");
+        });
+    </script>
+
+</body>
+
+</html>
