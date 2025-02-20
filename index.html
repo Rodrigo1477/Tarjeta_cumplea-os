@@ -18,8 +18,9 @@
 
         .card-container {
             position: relative;
-            width: 500px;
-            height: 600px;
+            width: 90%;
+            max-width: 400px;
+            height: 500px;
             perspective: 1000px;
         }
 
@@ -55,39 +56,24 @@
         .card .front {
             background-color: #c9b6ec;
             color: rgb(226, 82, 192);
-            font-size: 22px;
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
         }
 
         .card .front img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             border: 3px solid white;
             margin-bottom: 10px;
-        }
-
-        .card .front p {
-            font-size: 18px;
-            animation: bounce 1.5s infinite alternate;
-        }
-
-        @keyframes bounce {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-5px);
-            }
         }
 
         .card .inside {
             background: rgb(253, 194, 243);
             color: #ba2ecd;
             transform: rotateY(180deg);
-            font-size: 20px;
+            font-size: 16px;
             font-weight: bold;
             line-height: 1.5;
         }
@@ -96,11 +82,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 5px;
+            margin-top: 15px;
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            flex-wrap: wrap;
         }
 
         .card.open .stickers {
@@ -109,9 +96,9 @@
         }
 
         .stickers img {
-            width: 130px;
+            width: 80px;
             height: auto;
-            border-radius: 15px;
+            border-radius: 10px;
             transition: transform 0.3s;
         }
 
@@ -122,7 +109,6 @@
 </head>
 
 <body>
-
     <div class="card-container">
         <div class="card" id="birthdayCard">
             <div class="front">
@@ -149,7 +135,6 @@
             this.classList.toggle("open");
         });
     </script>
-
 </body>
 
 </html>
